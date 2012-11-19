@@ -83,7 +83,6 @@ public class IDE extends VerticalLayout implements TeamListener {
 		chat.setUser(user.getUserId(), user.getName(), user.getStyle());
 		chat.setShowMyNick(false);
 		chat.setCaption("Project-wide Chat:");
-		chat.setPollInterval(0);
 		chat.setWidth("90%");
 		chat.setHeight("90%");
 		rightBar.addComponent(chat);
@@ -98,7 +97,7 @@ public class IDE extends VerticalLayout implements TeamListener {
 		layout.addComponent(rightBar);
 		layout.setExpandRatio(hsp, 1);
 		
-		refresher.setRefreshInterval(1000);
+		refresher.setRefreshInterval(400);
 		addComponent(refresher);
 	}
 	
@@ -137,7 +136,9 @@ public class IDE extends VerticalLayout implements TeamListener {
 		if (editor != null) {
 			editor.setEnabled(user != null);
 			editor.setReadOnly(user == null);
-			//editor.setUser(user); //TODO
+			if (user!=null) {
+				editor.setUser(user.getUserId(), user.getStyle());
+			}
 			project.getTeam().addUserCollabId(user, editor.getCollaboratorId());
 		}
 	}
@@ -163,7 +164,6 @@ public class IDE extends VerticalLayout implements TeamListener {
 		editor = EditorUtil.createEditorFor(doc, file);
 		editor.setSizeFull();
 		setEditorUser(user);
-		editor.setPollInterval(0);
 		mw.listenToEditor(editor);
 		editorLayout.removeAllComponents();
 		editorLayout.addComponent(editor);

@@ -9,6 +9,7 @@ import org.vaadin.aceeditor.collab.DocDiff;
 import org.vaadin.aceeditor.collab.ErrorCheckTask;
 import org.vaadin.aceeditor.collab.gwt.shared.Doc;
 import org.vaadin.aceeditor.java.util.InMemoryCompiler;
+import org.vaadin.diffsync.DiffTaskExecPolicy;
 import org.vaadin.diffsync.Shared;
 
 import com.vaadin.data.Validator;
@@ -133,7 +134,7 @@ public class VaadinProject extends Project {
 			ErrorChecker checker = new FileSavingCompilerErrorChecker(compiler, getLocationOfFile(file));
 			ErrorCheckTask task = new ErrorCheckTask(
 					sharedDoc.newCollaboratorId(), checker);
-			sharedDoc.addAsyncTask(task, true);
+			sharedDoc.addAsyncTask(task, DiffTaskExecPolicy.LATEST_CANCEL_RUNNING);
 		}
 	}
 	@Override

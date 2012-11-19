@@ -4,7 +4,6 @@ import org.vaadin.aceeditor.collab.DocDiff;
 import org.vaadin.aceeditor.collab.SuggestibleCollabAceEditor;
 import org.vaadin.aceeditor.collab.gwt.shared.Doc;
 import org.vaadin.aceeditor.gwt.ace.AceMode;
-import org.vaadin.aceeditor.java.VaadinAceEditor;
 import org.vaadin.aceeditor.java.VaadinSuggester;
 import org.vaadin.aceeditor.java.util.InMemoryCompiler;
 import org.vaadin.diffsync.Shared;

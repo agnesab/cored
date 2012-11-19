@@ -2,7 +2,7 @@ package org.vaadin.cored;
 
 import java.io.File;
 
-public class ProjectFile implements Comparable {
+public class ProjectFile implements Comparable<Object> {
 
 	private final File dir;
 	private final String name;

@@ -89,6 +89,7 @@ public class MyFileUtils {
 	}
 
 	// http://stackoverflow.com/questions/1399126/java-util-zip-recreating-directory-structure
+	@SuppressWarnings("resource")
 	public static void zip(File directory, File zipfile) throws IOException {
 		URI base = directory.toURI();
 		Deque<File> queue = new LinkedList<File>();
